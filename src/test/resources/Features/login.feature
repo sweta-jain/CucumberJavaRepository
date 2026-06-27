@@ -2,9 +2,9 @@
 #Author
 #Description
 
-@SmokeTest
-
 Feature: test login functionality		
+
+@SmokeTest
 Scenario: Successful login with valid credentials
 
 Given user is on login page	
