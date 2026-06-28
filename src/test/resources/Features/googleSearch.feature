@@ -2,13 +2,13 @@
 #Author
 #Description
 
-Feature: feature to test google search functionality		
-
 @GoogleSearchTest
-Scenario: Validate google search functionality
+Feature: feature to test google search functionality
 
-Given browser is open 
-And user is on google search page
+Background: User has everything
+Given user is on google search page
+
+Scenario: Validate google search functionality
 When user enters search text
 And user hits enter
 Then user is navigated to the search results

@@ -7,6 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,8 +17,8 @@ public class googleSearchStepDefinition {
 
 	WebDriver driver = null;
 	
-	@Given("browser is open")
-	public void browser_is_open() {
+	@Before()
+	public void browserSetup() {
 	    // Write code here that turns the phrase above into concrete actions
 	   driver = new ChromeDriver();
 	   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -44,10 +46,15 @@ public class googleSearchStepDefinition {
 	}
 	
 	@Then("user is navigated to the search results")
-	public void user_is_navigated_to_the_search_results() {
+	public void user_is_navigated_to_the_search_results() throws InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
 	    driver.getPageSource().contains("Online Courses");
-	    driver.close();
+	    Thread.sleep(2000);
+	}
+	
+	@After
+	public void browserTeardown() {
+		driver.close();
 	    driver.quit();
 	}
 }
