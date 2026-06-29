@@ -13,7 +13,8 @@ import static io.cucumber.junit.platform.engine.Constants.FILTER_TAGS_PROPERTY_N
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "StepDefinitions")
 @ConfigurationParameter(key = "cucumber.plugin", value = "pretty, json:target/json-cucumber-reports/testreport.json, "
 		+ "html:target/html-cucumber-reports/testreport.html, "
+		+ "json:target/cucumber.json, "
 		+ "junit:target/junit-cucumber-reports/testreport.xml")
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@GoogleSearchTest")
-public class testRunner {
+public class TestRunner {
 }
